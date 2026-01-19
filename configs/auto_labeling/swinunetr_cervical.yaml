@@ -1,0 +1,10 @@
+type: swin_unetr
+name: swinunetr-cervical-r20260119
+display_name: SwinUNETR Cervical
+provider: cpu
+conf_threshold: 0.5
+model_path: /home/kien/convert_model/best_swinunetr_cervical.onnx
+classes:
+  - _background_
+  - C2
+  - Vertebra
