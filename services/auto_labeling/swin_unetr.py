@@ -60,7 +60,11 @@ class SwinUNETR(Model):
             )
 
         # self.net = OnnxBaseModel(model_abs_path, __preferred_device__)
+        print("[DBG] config provider =", self.config.get("provider"))
+        import onnxruntime as ort
+        print("[DBG] ORT available providers =", ort.get_available_providers())
         self.net = OnnxBaseModel(model_abs_path, self.config.get("provider", "cpu"))
+        print("[DBG] ORT session providers:", self.net.ort_session.get_providers())
         self.classes = self.config["classes"]
         self.input_shape = self.net.get_input_shape()[-2:]  # (H, W)
 
